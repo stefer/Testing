@@ -47,4 +47,9 @@ Testdriven/Testdriven/Testdriven/bin/*
 Testdriven/Testdriven/Testdriven/obj/*
 Testdriven/Testdriven/Tests/bin/*
 Testdriven/Testdriven/Tests/obj/*
+Testdriven/Testdriven/packages/*
 
+*.nupkg
+*.ncrunchsolution
+*.ncrunchproject
+*.cache
