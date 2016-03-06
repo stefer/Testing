@@ -132,14 +132,20 @@
       <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
     </Compile>
     <Compile Include="SpecFlowFeature1Steps.cs" />
-    <Compile Include="SpecFlowFeature2.feature.cs">
+    <Compile Include="WktParser.Parse.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SpecFlowFeature2.feature</DependentUpon>
+      <DependentUpon>WktParser.Parse.feature</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="WktFromSharpMap.cs" />
     <Compile Include="WktFromDbGeometry.cs" />
+    <Compile Include="WktParser.ToString.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WktParser.ToString.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WktParserToStringSteps.cs" />
     <Compile Include="WktStringParserSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,9 +164,13 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
     </None>
-    <None Include="SpecFlowFeature2.feature">
+    <None Include="WktParser.Parse.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature2.feature.cs</LastGenOutput>
+      <LastGenOutput>WktParser.Parse.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WktParser.ToString.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>WktParser.ToString.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@ namespace Testdriven.wkt
 {
     public struct WktPosition
     {
-        public ICollection<WktGeometry> Geometries;
+        public IList<WktGeometry> Geometries;
         public WktCoordinate? SimplePosition;
     }
 
@@ -29,6 +29,6 @@ namespace Testdriven.wkt
     {
         public double X;
         public double Y;
-        public double Z;
+        public double? Z;
     }
 }

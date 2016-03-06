@@ -4,12 +4,17 @@ namespace Testdriven.wkt
 {
     public class WktParser
     {
+        static ToWktConverter toWkt = new ToWktConverter();
+        static FromWktConverter fromWkt = new FromWktConverter();
+
         public static WktPosition Parse(string wktString)
         {
-            WktConverter converter = new WktConverter();
+            return toWkt.ToPosition(GeometryFromWKT.Parse(wktString));
+        }
 
-            return converter.Convert(GeometryFromWKT.Parse(wktString));
-
+        public static string ToString(WktPosition position)
+        {
+            return fromWkt.FromPosition(position).ToString();
         }
     }
 }

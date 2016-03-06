@@ -24,7 +24,7 @@ namespace Tests
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "SpecFlowFeature2.feature"
+#line 1 "WktParser.Parse.feature"
 #line hidden
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]

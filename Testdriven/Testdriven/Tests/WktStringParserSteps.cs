@@ -83,7 +83,6 @@ namespace Tests
             }
         }
 
-
         [Then(@"the result should be a Line with values (.*)")]
         public void ThenTheResultShouldBeALineWithValues(IList<double> values)
         {

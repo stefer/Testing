@@ -5,19 +5,14 @@ using System.Linq;
 
 namespace Testdriven.wkt
 {
-    public class WktConverter
+    public class ToWktConverter
     {
-        public IGeometry Convert(WktPosition from)
-        {
-            throw new NotImplementedException();
-        }
-
-        public WktPosition Convert(IGeometry from)
+        public WktPosition ToPosition(IGeometry from)
         {
             WktPosition pos = new WktPosition();
             if (from is IPoint)
             {
-                pos.SimplePosition = Convert(from.Coordinate);
+                pos.SimplePosition = ToCoordinate(from.Coordinate);
             }
             else if (from is ILineString)
             {
@@ -79,7 +74,7 @@ namespace Testdriven.wkt
             }
         }
 
-        public WktCoordinate Convert(Coordinate c)
+        public WktCoordinate ToCoordinate(Coordinate c)
         {
             return new WktCoordinate { X = c.X, Y = c.Y, Z = c.Z };
         }
@@ -96,12 +91,12 @@ namespace Testdriven.wkt
 
         public WktGeometry ToGeometry(IPolygon from)
         {
-            return new WktGeometry { Type = GeometryType.Polygon, Coordinates = from.ExteriorRing.Coordinates.Select(x => Convert(x)).ToList() };
+            return new WktGeometry { Type = GeometryType.Polygon, Coordinates = from.ExteriorRing.Coordinates.Select(x => ToCoordinate(x)).ToList() };
         }
 
         private WktGeometry ToGeometry(GeometryType type, IGeometry from)
         {
-            return new WktGeometry { Type = type, Coordinates = from.Coordinates.Select(x => Convert(x)).ToList() };
+            return new WktGeometry { Type = type, Coordinates = from.Coordinates.Select(x => ToCoordinate(x)).ToList() };
         }
     }
 }
