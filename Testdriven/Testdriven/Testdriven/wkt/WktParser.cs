@@ -9,31 +9,7 @@ namespace Testdriven.wkt
 {
     public class WktParser
     {
-        public struct WktPosition
-        {
-            public ICollection<WktGeometry> Geometries;
-            public WktCoordinate? SimplePosition;
-        }
-
-        public struct WktGeometry
-        {
-            public enum GeometryType
-            {
-                Point,
-                Line,
-                Polygon
-            }
-
-            public GeometryType Type;
-            public ICollection<WktCoordinate> Coordinates;
-        }
-
-        public struct WktCoordinate
-        {
-            public double X;
-            public double Y;
-            public double Z;
-        }
+        
 
         public class WktConverter
         {
@@ -116,20 +92,20 @@ namespace Testdriven.wkt
 
             public WktGeometry ToGeometry(IPoint from)
             {
-                return ToGeometry(WktParser.WktGeometry.GeometryType.Point, from);
+                return ToGeometry(GeometryType.Point, from);
             }
 
             public WktGeometry ToGeometry(ILineString from)
             {
-                return ToGeometry(WktParser.WktGeometry.GeometryType.Line, from);
+                return ToGeometry(GeometryType.Line, from);
             }
 
             public WktGeometry ToGeometry(IPolygon from)
             {
-                return new WktGeometry { Type = WktParser.WktGeometry.GeometryType.Polygon, Coordinates = from.ExteriorRing.Coordinates.Select(x => Convert(x)).ToList() };
+                return new WktGeometry { Type = GeometryType.Polygon, Coordinates = from.ExteriorRing.Coordinates.Select(x => Convert(x)).ToList() };
             }
 
-            private WktGeometry ToGeometry(WktParser.WktGeometry.GeometryType type, IGeometry from)
+            private WktGeometry ToGeometry(GeometryType type, IGeometry from)
             {
                 return new WktGeometry { Type = type, Coordinates = from.Coordinates.Select(x => Convert(x)).ToList() };
             }

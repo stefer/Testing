@@ -50,9 +50,9 @@ namespace Tests
             Assert.AreEqual(numGeometries, position.Geometries.Count);
         }
 
-        private WktParser.WktPosition GetPosition()
+        private WktPosition GetPosition()
         {
-            return ScenarioContext.Current.Get<WktParser.WktPosition>("result");
+            return ScenarioContext.Current.Get<WktPosition>("result");
         }
 
         [Then(@"geometry (.*) should be a (.*)")]
@@ -60,7 +60,7 @@ namespace Tests
         {
             var position = GetPosition();
             var geom = position.Geometries.ElementAt(geometryIndex);
-            var expectedType = Enum.Parse(typeof (WktParser.WktGeometry.GeometryType), type);
+            var expectedType = Enum.Parse(typeof (GeometryType), type);
 
             Assert.AreEqual(expectedType, geom.Type);
         }
@@ -87,10 +87,10 @@ namespace Tests
         [Then(@"the result should be a Line with values (.*)")]
         public void ThenTheResultShouldBeALineWithValues(IList<double> values)
         {
-            var geometry = ScenarioContext.Current.Get<WktParser.WktPosition>("result");
+            var geometry = ScenarioContext.Current.Get<WktPosition>("result");
 
             Assert.AreEqual(1, geometry.Geometries.Count);
-            Assert.AreEqual(WktParser.WktGeometry.GeometryType.Line, geometry.Geometries.First().Type);
+            Assert.AreEqual(GeometryType.Line, geometry.Geometries.First().Type);
             Assert.IsNull(geometry.SimplePosition);
 
             var coordinates = geometry.Geometries.First().Coordinates.ToList();
@@ -105,10 +105,10 @@ namespace Tests
         [Then(@"the result should be a Polygon with values (.*)")]
         public void ThenTheResultShouldBeAPolygonWithValues(IList<double> values)
         {
-            var geometry = ScenarioContext.Current.Get<WktParser.WktPosition>("result");
+            var geometry = ScenarioContext.Current.Get<WktPosition>("result");
 
             Assert.AreEqual(1, geometry.Geometries.Count);
-            Assert.AreEqual(WktParser.WktGeometry.GeometryType.Polygon, geometry.Geometries.First().Type);
+            Assert.AreEqual(GeometryType.Polygon, geometry.Geometries.First().Type);
             Assert.IsNull(geometry.SimplePosition);
 
             var coordinates = geometry.Geometries.First().Coordinates.ToList();
