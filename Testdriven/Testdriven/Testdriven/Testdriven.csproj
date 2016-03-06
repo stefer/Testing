@@ -122,6 +122,7 @@
     <Compile Include="CallerInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="wkt\WktConverter.cs" />
     <Compile Include="wkt\WktParser.cs" />
     <Compile Include="wkt\WktPosition.cs" />
   </ItemGroup>
